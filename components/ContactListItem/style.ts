@@ -28,14 +28,8 @@ const style = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
     },
-    lastMessage: {
-        fontSize: 16,
-        color: 'grey',
-        width: '100%',
-    },
-    time: {
-        fontSize: 14,
-        color: 'grey'
+    status: {
+        
     }
 });
 

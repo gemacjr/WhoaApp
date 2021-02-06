@@ -8,6 +8,8 @@ export type MainTabParamList = {
   Chats: undefined;
   Status: undefined;
   Calls: undefined;
+  ChatRoom: undefined;
+  Contacts: undefined;
 };
 
 export type TabOneParamList = {
@@ -21,18 +23,19 @@ export type TabTwoParamList = {
 export type User = {
   id: string;
   name: string;
-  imageUrl: string;
+  imageUri: string;
 }
 
 export type Message = {
   id: string;
   content: string;
-  createdAt: number;
+  createdAt: string;
+  user: User;
   
 }
 
 export type ChatRoom = {
   id: string;
-  users: [User];
+  users: User[];
   lastMessage: Message;
 }

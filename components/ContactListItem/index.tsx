@@ -1,29 +1,26 @@
 import React from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
-import { ChatRoom } from "../../types";
+import { User } from "../../types";
 import styles from "./style";
 import moment from 'moment';
 import { useNavigation } from '@react-navigation/native'
 
-export type ChatListItemProps = {
-    chatRoom: ChatRoom;
+export type ContactListItemProps = {
+    user: User;
 
 }
 
-const ChatListItem = (props: ChatListItemProps) => {
+const ContactListItem = (props: ContactListItemProps) => {
 
-    const { chatRoom } = props;
+    const { user } = props;
 
     const navigation = useNavigation();
 
-    const user = chatRoom.users[1];
 
     const onClick = () => {
-        // console.warn(`Clicked on ${user.name}`);
+        // navigate to chat room with this user
         navigation.navigate('ChatRoom', { 
-            id: chatRoom.id,
-            name: user.name,
-            image: user.imageUri
+            
         });
     }
     
@@ -38,11 +35,9 @@ const ChatListItem = (props: ChatListItemProps) => {
 
                 <View style={styles.midContainer}>
                 <Text style={styles.username}>{user.name}</Text>
-                <Text style={styles.lastMessage}>{chatRoom.lastMessage.content}</Text>
+                {/* <Text style={styles.lastMessage}>{user.status}</Text> */}
                 </View>
             </View>
-            <Text style={styles.time}>{moment(chatRoom.lastMessage.createdAt).format("MM/DD/YY")}</Text>
-            
         </View>
             
 
@@ -51,4 +46,4 @@ const ChatListItem = (props: ChatListItemProps) => {
     )
 };
 
-export default ChatListItem;
+export default ContactListItem;
